@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nordea Swish</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: white;
+    }
+
+    .page {
+      display: none;
+      padding: 30px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    .logo {
+      margin-top: 50px;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .swish-circle {
+      margin: 40px auto;
+      width: 100px;
+      height: 100px;
+      background: conic-gradient(red, orange, yellow, green, blue, indigo, violet, red);
+      border-radius: 50%;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 40px;
+      font-size: 18px;
+      background-color: #009fe3;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 20px;
+    }
+
+    .input-group {
+      margin: 20px 0;
+      text-align: left;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .input-group input,
+    .input-group textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Sida 1 -->
+<div id="homePage" class="page active">
+  <div class="logo">Nordea</div>
+  <div class="swish-circle"></div>
+  <button class="button" onclick="goToSwish()">Swish</button>
+</div>
+
+<!-- Sida 2 -->
+<div id="swishPage" class="page">
+  <h2>Skicka Swish</h2>
+
+  <div class="input-group">
+    <label for="recipient">Mottagare</label>
+    <input type="text" id="recipient" placeholder="Skriv in telefonnummer">
+  </div>
+
+  <div class="input-group">
+    <label for="amount">Belopp</label>
+    <input type="number" id="amount" placeholder="Ange belopp (kr)">
+  </div>
+
+  <div class="input-group">
+    <label for="message">Meddelande</label>
+    <textarea id="message" placeholder="Skriv ett meddelande (frivilligt)"></textarea>
+  </div>
+
+  <button class="button">Swisha</button>
+</div>
+
+<script>
+  function goToSwish() {
+    document.getElementById("homePage").classList.remove("active");
+    document.getElementById("swishPage").classList.add("active");
+  }
+</script>
+
+</body>
+</html>
